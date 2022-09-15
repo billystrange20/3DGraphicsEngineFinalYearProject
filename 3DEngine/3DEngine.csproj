@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>_3DEngine</RootNamespace>
+    <Nullable>annotations</Nullable>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTK" Version="2.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="OpenGL">
+      <HintPath>libs\OpenGL.dll</HintPath>
+    </Reference>
+    <Reference Include="Tao.FreeGlut">
+      <HintPath>libs\Tao.FreeGlut.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="copy &quot;$(ProjectDir)\libs\*&quot; &quot;$(TargetDir)&quot;&#xD;&#xA;copy &quot;$(ProjectDir)\data\*&quot; &quot;$(TargetDir)&quot;" />
+  </Target>
+
+</Project>
