@@ -1,2 +1,4 @@
-#3D Graphics Engine
-CE301 Final Report 1803524.pdf
+# 3D Graphics Engine
+
+[Here is the projects manual and report]()
+
